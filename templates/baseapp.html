@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EMOSENSE- Multimodal Sentiment Analysis System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&family=Poppins:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar-brand h2 span {
+            color: #fff;
+        }
+
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 56px; /* Adjust if your navbar height is different */
+            left: 0;
+            width: 250px;
+            padding-top: 20px;
+            background-color: #f8f9fa;
+            overflow-y: auto;
+        }
+
+        .sidebar .nav-link {
+            font-size: 1.1em;
+        }
+        .sidebar.hidden {
+        display: none; /* Hide the sidebar initially */
+}
+
+        .main-content {
+        margin-left: 250px; /* Remove any existing margin-left */
+        }
+
+        .sidebar.shown {
+        display: block; /* Show the sidebar when needed */
+        }
+
+        .main-content.shifted {
+        margin-left: 250px; /* Adjust based on sidebar width */
+        }
+    </style>
+</head>
+<body>
+ <navbar-expand-lg class="navbar navbar-expand-lg navbar-dark bg-dark py-3 fixed-top">
+        <div class="container">
+            <a href="/" class="navbar-brand"><h2><span>EMOSENSE</span></h2></a>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item ms-3">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a href="#sentiment" class="nav-link">Analyse Sentiment</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a href="#working" class="nav-link">How It Works</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a href="#about" class="nav-link">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </navbar-expand-lg>
+    <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+    <div style="padding-top: 90px">
+        <div>
+            <h2>Check Out this!</h2><br>
+            <a href="{{ url_for('realtime') }}"><h3 style="color: #396172">REALE.mo</h3></a><br>
+            <img id="video-feed" src="placeholder.jpg" width="80%" style="display:none;">
+            <p>Click on REALE.mo to get real-time sentiment analysis</p>
+        </div>
+    </div>
+</nav>
+
+<script>
+    document.getElementById('start-link').addEventListener('click', function(event) {
+        event.preventDefault();  // Prevent the default link behavior
+        const videoFeed = document.getElementById('video-feed');
+        videoFeed.src = "{{ url_for('video_feed') }}";
+        videoFeed.style.display = 'block';
+    });
+</script>
+
+<!-- home section -->
+ <div class="main-content">
+<section class="bg-transparent text-dark px-5 text-center">
+    <div class="container mt-5 p-5 " style="margin-left: 33.33 vw">
+        <div class="p-5">
+            <h1>Welcome to <span class="text-warning">EMO-SENSE</span>!</h1>
+            <h4>These platform is designed to analyze the sentiments and modalities present in your videos.<br>
+                Our advanced algorithms process your uploaded videos to provide insights into the emotional and content-rich elements within them.
+            </h4>
+        </div>
+        <div class="row" align="center">
+            <div class="col-lg-6 col-md-2" style="padding-bottom: 50px;">
+                <div align="left"><h2 style="color: #5275EC;">Why to use EMOSENSE?</h2>
+                <ul>
+                <li>Insightful Analysis: Understand the emotional and content aspects of your videos.</li>
+                <li>Easy to Use: Simple upload and analysis process.</li>
+                <li>Visualizations: Visual representations of sentiment and modalities for better understanding.</li>
+                <li>Secure and Private: Your uploaded videos are processed securely and your data is kept private.</li>
+                </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-2" style="padding-bottom: 50px;">
+
+            </div>
+    </div>
+    </div>
+</section>
+<!-- Home Section Ends -->
+<!-- sentiment analysis section start -->
+<section id="sentiment" style="background-color: #87A2FF;">
+            <div style="text-align: center; padding: 100px; margin-left: 33.33 vw;">
+                <div><h2>Get Started Today!</h2><br>
+                    <h4 style="color: #396172">Upload your video now to gain valuable insights!</h4><br>
+                <h6><i>("To get analysis choose the file and click upload")</i></h6></div>
+                 <form action="/upload" method="post" enctype="multipart/form-data">
+                     <input type="file" name="file" id="file-upload">
+                     <br>
+                     <button type="submit">Upload</button>
+                </form>
+                <script>
+document.getElementById('upload-button').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const uploadForm = document.getElementById('your-form-id');  // Replace with actual form ID
+    const formData = new FormData(uploadForm);
+
+    fetch('/upload', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('message-container').innerHTML = data.message;
+        // Optionally hide the form or display a success icon
+    })
+    .catch(error => {
+        console.error(error);
+        // Handle errors (e.g., display an error message)
+    });
+});
+</script>
+                </div>
+
+</section>
+<!-- sentiment analysis section end-->
+
+<!-- how it works section start-->
+<section id = "working" class="bg-transparent text-dark px-5 text-center">
+<div>
+    <div style="padding: 70px;"><h1>HOW IT WORKS!</h1>
+        <h6>In simple terms,EMOSENSE, work in three stages</h6></div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6" style="padding-bottom: 50px;">
+                <h3 style="color: #5275EC;">DIFFUSION</h3>
+                <p>'DiffusionStage' is a class in our system that handles the processing of uploaded videos to extract and segregate different modalities. Enables the visualization of different modalities and sentiments for better understanding. Forms the basis for further analysis and processing in our system.</p>
+            </div>
+            <div class="col-lg-4 col-md-6" style="padding-bottom: 50px;">
+                <h3 style="color: #5275EC;">MODEL EXECUTION STAGE</h3>
+                <p class="descript">Here the extracted modalities are given as an input to 3 different models, these models uses machine learning, neural network and data science conpect to provide accurate result.Each of our model has accuracy more that 80%</p>
+            </div>
+            <div class="col-lg-4 col-md-6" style="padding-bottom: 50px;">
+                <h3 style="color: #5275EC;">FUSION STAGE</h3>
+                <p class="descript">Fusion stage, as the name suggest will do the work of combining of results. it use mathamatical statistics to obtain result</p>
+            </div>
+         </div>
+
+
+
+    </div>
+</section>
+<!-- how it works section end-->
+
+<!-- About section start -->
+<section id="about" class="bg-dark text-light text-center" style="padding: 70px">
+    <div align="left"><h5>About Us</h5>
+        <p>EMOSENSE- MULTIMODAL SENTIMENT ANALYSIS SYSTEM, is a BE final year project at Bharati Vidyapeeth's College Of Engineering, Lavale, Pune. It performs sentiment analysis over 3 different modalities (text, audio, and images) and the combines the final result. We use concepts of machine learning, data science and technologies like python for main programming, html and css for frontend and styling, flask framework, Goolge-collab for machine learning model training and testing. apart form this datasets are taken form <a>kaggle</a></p>
+        <p>TEAM MEMBERS:</p>
+    <div class="row" align="center">
+            <div class="col-lg-3 col-md-4" style="padding-bottom: 50px;">
+                <h4 style="color: #5275EC;">Akanksha Jadhav</h4>
+                <p>Student at BVCOLE</p>
+            </div>
+            <div class="col-lg-3 col-md-4" style="padding-bottom: 50px;">
+                <h4 style="color: #5275EC;">Aditee Thute</h4>
+                <p>Student at BVCOLE</p>
+            </div>
+            <div class="col-lg-3 col-md-4" style="padding-bottom: 50px;">
+                <h4 style="color: #5275EC;">Diksha Gaikwad</h4>
+                <p>Student at BVCOLE</p>
+            </div>
+            <div class="col-lg-3 col-md-4" style="padding-bottom: 50px;">
+                <h4 style="color: #5275EC;">Apurva Shelke</h4>
+                <p>Student at BVCOLE</p>
+            </div>
+         </div>
+        <div class="row" align="center">
+            <div class="col-lg-6 col-md-2" style="padding-bottom: 50px;">
+                <p>PROJECT GUIDE:</p>
+                <h4 style="color: #5275EC;">prof. Prajakta Pawar</h4>
+                <p></p>
+            </div>
+            <div class="col-lg-6 col-md-2" style="padding-bottom: 50px;">
+                <p>HEAD OF DEPARTMENT:</p>
+                <h4 style="color: #5275EC;">Dr. Uday Patkar</h4>
+                <p class="descript"></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About section end -->
+ </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+  $("#sidebar").click(function() {
+    $(this).toggleClass("active"); /* Toggle sidebar visibility */
+    $(".main-content").toggleClass("shifted"); /* Toggle main content margin */
+  });
+});
+  </script>
+</body>
+</html>

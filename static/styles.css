@@ -1,0 +1,111 @@
+:root {
+    --light-purple: #e6e6fa;
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-size: 62,5%;
+}
+body {
+  padding: 10% 5%;
+  background: #6F1A08;
+  background: linear-gradient(to right,#2c5364, #203a43, #0f2027);
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #6F1A08;
+}
+
+.button {
+  appearance: button;
+  background-color: transparent;
+  background-image: linear-gradient(to bottom, #fff, #f8eedb);
+  border: 0 solid #e5e7eb;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #482307;
+  column-gap: 1rem;
+  cursor: pointer;
+  display: flex;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 100%;
+  font-weight: 700;
+  line-height: 24px;
+  margin: 0;
+  outline: 2px solid transparent;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  text-transform: none;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: -6px 8px 10px rgba(81,41,10,0.1),0px 2px 2px rgba(81,41,10,0.2);
+}
+
+.text-warning {
+    color: #4FE128; /* Set to the desired warning color */
+}
+
+.text-label,
+.text-hero-bold,
+.text-hero-regular {
+    margin: 24px 0;
+}
+
+
+.text-label {
+    color: #108178;
+    font-size: var(--text-regular);
+    font-weight: var(--font-weight-regular);
+    line-height: 31px;
+}
+
+.text-hero-bold {
+    color: var(--drak-brown);
+    font-size: var(--header-1);
+    font-weight: var(--font-weight-bold);
+    line-height: 74px;
+}
+
+.text-hero-regular {
+    color: var(--gray-1);
+    font-size: var(--text-regular);
+    font-weight: var(--font-weight-regular);
+    line-height: 31px;
+}
+
+ .vh-100 {
+    color: #04175A;
+ }
+.light-purple-section {
+    background-color: #DC73FA;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.prim-text:{
+colour : #87A2FF;
+}
+
+.prim_background:{
+background-color = #7392FA;
+}
+.section-class {
+    background-color: #5275EC;
+    /* Add other styles as needed */
+}
+.flashy-text {
+  animation: flash 2s infinite alternate; /* Animation name, duration, loop count, timing function */
+  color: #fff; /* Initial color */
+}
+
+@keyframes flash {
+  0% { color: #fff; } /* Start with white */
+  50% { color: #f00; } /* Change to red at 50% */
+  100% { color: #fff; } /* Back to white at 100% */
+}
